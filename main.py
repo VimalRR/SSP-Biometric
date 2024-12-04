@@ -44,7 +44,7 @@ async def zk():
         print("attendance",attendance)
 
         # print ("Voice Test ...")
-        # conn.test_voice()
+        conn.test_voice()
         print ('Enabling device ...')
         conn.enable_device()
     except Exception as e:
