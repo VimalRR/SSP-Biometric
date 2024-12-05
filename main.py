@@ -12,9 +12,6 @@ def read_root():
     return {"Hello": "World"}
 
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
 
 @app.get("/zk")
 async def zk():
@@ -47,8 +44,11 @@ async def zk():
         conn.test_voice()
         print ('Enabling device ...')
         conn.enable_device()
+
+        return {"message": "Success"}
     except Exception as e:
         print ("Process terminate : {}".format(e))
+        return {"message": "Process terminate : {}".format(e)}
     finally:
         if conn:
             conn.disconnect()
